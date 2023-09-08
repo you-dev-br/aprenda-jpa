@@ -26,7 +26,6 @@ Itens semelhantes podem estar associados a uma categoria.
   │            │
   │nome        │
   │email       │
-  │vinculo     │
   └──────────┬─┘
              │UmParaMuitos
              │
@@ -58,6 +57,7 @@ Videos
 - Aprenda JPA 09 - Busca avancada: @Query
 - Aprenda JPA 10 - Busca avancada: Criteria API
 - Aprenda JPA 11 - Associação por tabelas e colunas
+- Aprenda JPA 12 - Cascade Type
 
 Desenvolvimento
 ---------------
