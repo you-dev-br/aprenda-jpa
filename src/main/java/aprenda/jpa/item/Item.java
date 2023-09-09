@@ -1,8 +1,12 @@
 package aprenda.jpa.item;
 
+import aprenda.jpa.categoria.Categoria;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Setter
@@ -15,4 +19,6 @@ public class Item {
     private String nome;
     @OneToOne(cascade = CascadeType.ALL)
     private QrCode qrCode;
+    @OneToMany(cascade = CascadeType.ALL)
+    private Set<Categoria> categorias = new HashSet<>();
 }

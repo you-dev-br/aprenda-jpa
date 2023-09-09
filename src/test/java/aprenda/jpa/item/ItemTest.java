@@ -1,5 +1,7 @@
 package aprenda.jpa.item;
 
+import aprenda.jpa.categoria.Categoria;
+import aprenda.jpa.categoria.CategoriaRepository;
 import lombok.val;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,12 +11,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class ItemTest {
-    @Autowired
-    private ItemRepository itemRepository;
     private static final String NOME = "Epson LX300";
     private static final String NOME_ATUALIZADO = "Epson LX300 - Atualizado";
     private static final String DESCRICAO = "Impressora matricial. Papel continuo ou folha individual.";
     private static final String QR_CODE = "https://github.com/rafacandev/aprenda-jpa";
+    private static final String CATEGORIA_NOME = "Impressora";
+
+    @Autowired
+    private ItemRepository itemRepository;
+    @Autowired
+    private CategoriaRepository categoriaRepository;
 
     @Test
     void salvarUmNovoItem_Entao_VerificarItemNoRepositorio() {
@@ -64,5 +70,25 @@ class ItemTest {
                 .ifPresentOrElse(
                         i -> assertEquals(QR_CODE, i.getCode()),
                         () -> fail("QrCode not found"));
+    }
+
+    @Test
+    void salvarItemComCategorias_Entao_VerificarNoRepositorio() {
+        val novoItem = new Item();
+        novoItem.setNome(NOME);
+        novoItem.setDescricao(DESCRICAO);
+
+        val novaCategoria = new Categoria(CATEGORIA_NOME);
+        novoItem.getCategorias().add(novaCategoria);
+
+        itemRepository.save(novoItem);
+
+
+        val itemNoRepositorio = itemRepository.findById(novoItem.getId()).orElse(null);
+        assertNotNull(itemNoRepositorio);
+
+        val categoriaNoRepositorio = categoriaRepository.findById(novaCategoria.getNome()).orElse(null);
+        assertNotNull(categoriaNoRepositorio);
+        assertEquals(CATEGORIA_NOME, categoriaNoRepositorio.getNome());
     }
 }
