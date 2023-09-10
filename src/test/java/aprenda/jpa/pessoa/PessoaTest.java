@@ -17,8 +17,6 @@ class PessoaTest {
     private static final String ITEM_DESCRICAO = "Impressora matricial. Papel continuo ou folha individual.";
     private static final String QR_CODE = "https://github.com/rafacandev/aprenda-jpa";
 
-
-
     @Autowired
     private PessoaRepository pessoaRepository;
     @Autowired

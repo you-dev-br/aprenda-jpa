@@ -65,11 +65,10 @@ class ItemTest {
         novoItem.setQrCode(qrCode);
         itemRepository.save(novoItem);
 
-        itemRepository.findById(novoItem.getId())
-                .map(Item::getQrCode)
-                .ifPresentOrElse(
-                        i -> assertEquals(QR_CODE, i.getCode()),
-                        () -> fail("QrCode not found"));
+        val itemNoRepositorio = itemRepository.findById(novoItem.getId()).orElse(null);
+        assertNotNull(itemNoRepositorio);
+        assertNotNull(itemNoRepositorio.getQrCode());
+        assertEquals(QR_CODE, itemNoRepositorio.getQrCode().getCode());
     }
 
     @Test
