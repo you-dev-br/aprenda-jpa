@@ -7,7 +7,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest
 class ItemTest {
@@ -82,11 +83,11 @@ class ItemTest {
 
         itemRepository.save(novoItem);
 
-
         val itemNoRepositorio = itemRepository.findById(novoItem.getId()).orElse(null);
         assertNotNull(itemNoRepositorio);
 
-        val categoriaNoRepositorio = categoriaRepository.findById(novaCategoria.getNome()).orElse(null);
+        assertEquals(1, novoItem.getCategorias().size());
+        val categoriaNoRepositorio = itemNoRepositorio.getCategorias().stream().findFirst().orElse(null);
         assertNotNull(categoriaNoRepositorio);
         assertEquals(CATEGORIA_NOME, categoriaNoRepositorio.getNome());
     }
