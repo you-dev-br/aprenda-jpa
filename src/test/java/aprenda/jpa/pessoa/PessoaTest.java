@@ -2,6 +2,7 @@ package aprenda.jpa.pessoa;
 
 import aprenda.jpa.item.Item;
 import aprenda.jpa.item.ItemRepository;
+import jakarta.transaction.Transactional;
 import lombok.val;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,7 @@ class PessoaTest {
         val novaPessoa = new Pessoa();
         novaPessoa.setNome(NOME);
         novaPessoa.setEmail(EMAIL);
+
         val item = new Item();
         item.setNome(ITEM_NOME);
         item.setDescricao(ITEM_DESCRICAO);
@@ -55,7 +57,27 @@ class PessoaTest {
         assertEquals(NOME, pessoaNoRepositorio.getNome());
         assertEquals(EMAIL, pessoaNoRepositorio.getEmail());
 
-        val itemNoRepository = itemRepository.findById(item.getId());
-        assertTrue(itemNoRepository.isPresent());
+        val itemNoRepositorio = itemRepository.findById(item.getId());
+        assertTrue(itemNoRepositorio.isPresent());
+    }
+
+    @Test
+    @Transactional
+    void salvarUmaNovaPessoaComItemEmTrasacao_Entao_PegarItemDaPessoa() {
+        val novaPessoa = new Pessoa();
+        novaPessoa.setNome(NOME);
+        novaPessoa.setEmail(EMAIL);
+
+        val item = new Item();
+        item.setNome(ITEM_NOME);
+        item.setDescricao(ITEM_DESCRICAO);
+        novaPessoa.getItems().add(item);
+
+        pessoaRepository.save(novaPessoa);
+
+        val pessoaDoRepositorio = pessoaRepository.findById(novaPessoa.getId()).orElse(null);
+        val itemDaPessoa = pessoaDoRepositorio.getItems().stream().findFirst().orElse(null);
+        assertEquals(ITEM_NOME, itemDaPessoa.getNome());
+        assertEquals(ITEM_DESCRICAO, itemDaPessoa.getDescricao());
     }
 }

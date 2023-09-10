@@ -22,26 +22,26 @@ Para facilitar a identificação dos itens, cada um deles pode ter um QR Code.
 Itens semelhantes podem estar associados a uma categoria.
 
 ```
-  ┌─|PESSOA|───┐
-  │            │
-  │nome        │
-  │email       │
-  └──────────┬─┘
-             │UmParaMuitos
-             │
-             │
-  ┌─|ITEM|───┴─┐
-  │            │MuitosParaMuitos    ┌─|CATEGORIA|─┐
-  │nome        ├────────────────────┤             │
-  │descricao   │                    │nome         │
-  └──────────┬─┘                    └─────────────┘
-             │UmParaUm
-             │
-             │
-  ┌─|QrCode|─┴─┐
-  │            │
-  │codigo      │
-  └────────────┘
+          ┌─|PESSOA|───┐
+          │            │
+          │nome        │
+          │email       │
+          └──────────┬─┘
+                     │UmParaMuitos
+                     │
+                     │
+          ┌─|ITEM|───┴─┐                    ┌─|CATEGORIA|─┐   
+          │            │MuitosParaMuitos    │             │
+          │nome        ├────────────────────┤nome         │
+          │descricao   │                    └─────────────┘
+          └──────────┬─┘                    
+                     │UmParaUm
+                     │
+                     │
+          ┌─|QrCode|─┴─┐
+          │            │
+          │codigo      │
+          └────────────┘
 ```
 
 Videos
