@@ -4,7 +4,6 @@ import aprenda.jpa.categoria.Categoria;
 import aprenda.jpa.categoria.CategoriaRepository;
 import aprenda.jpa.item.Item;
 import aprenda.jpa.item.ItemRepository;
-import aprenda.jpa.item.QrCode;
 import lombok.val;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,10 +16,9 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
  * - Aprenda JPA 05 - Relacionamento MuitosParaMuitos (@ManyToMany)
  */
 @SpringBootTest
-class Aula05 {
-    private static final String NOME = "Epson LX300";
-    private static final String DESCRICAO = "Impressora matricial. Papel continuo ou folha individual.";
-    private static final String CATEGORIA_NOME = "Impressora";
+class Aula05Test {
+    private static final String NOME = "Sony Walkman";
+    private static final String CATEGORIA_NOME = "Toca fitas";
 
     @Autowired
     private ItemRepository itemRepository;
@@ -31,7 +29,6 @@ class Aula05 {
     void salvarItemComCategorias_Entao_VerificarNoRepositorio() {
         val novoItem = new Item();
         novoItem.setNome(NOME);
-        novoItem.setDescricao(DESCRICAO);
 
         val novaCategoria = new Categoria(CATEGORIA_NOME);
         novoItem.getCategorias().add(novaCategoria);

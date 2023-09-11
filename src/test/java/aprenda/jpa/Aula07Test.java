@@ -13,11 +13,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-class Aula07 {
-    private static final String NOME = "Ana";
-    private static final String EMAIL = "ana@test.com";
-    private static final String ITEM_NOME = "Epson LX300";
-    private static final String ITEM_DESCRICAO = "Impressora matricial. Papel continuo ou folha individual.";
+class Aula07Test {
+    private static final String NOME = "Bela";
+    private static final String EMAIL = "bela@test.com";
+    private static final String ITEM_NOME = "Game Boy";
 
     @Autowired
     private PessoaRepository pessoaRepository;
@@ -33,7 +32,6 @@ class Aula07 {
 
         val item = new Item();
         item.setNome(ITEM_NOME);
-        item.setDescricao(ITEM_DESCRICAO);
         novaPessoa.getItems().add(item);
 
         pessoaRepository.save(novaPessoa);
@@ -41,6 +39,5 @@ class Aula07 {
         val pessoaDoRepositorio = pessoaRepository.findById(novaPessoa.getId()).orElse(null);
         val itemDaPessoa = pessoaDoRepositorio.getItems().stream().findFirst().orElse(null);
         assertEquals(ITEM_NOME, itemDaPessoa.getNome());
-        assertEquals(ITEM_DESCRICAO, itemDaPessoa.getDescricao());
     }
 }

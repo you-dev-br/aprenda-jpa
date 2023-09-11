@@ -12,12 +12,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
- * - Aprenda JPA 03 - Relacionamento UmParaUm (@OneToOne)
+ * Aprenda JPA 03 - Relacionamento UmParaUm (@OneToOne)
  */
 @SpringBootTest
-public class Aula03 {
-    private static final String NOME = "Epson LX300";
-    private static final String DESCRICAO = "Impressora matricial. Papel continuo ou folha individual.";
+public class Aula03Test {
+    private static final String NOME = "Nokia 3210";
     private static final String QR_CODE = "https://github.com/rafacandev/aprenda-jpa";
 
     @Autowired
@@ -27,7 +26,6 @@ public class Aula03 {
     void salvarItemComQrCode_Entao_VerificarItemNoRepositorio() {
         val novoItem = new Item();
         novoItem.setNome(NOME);
-        novoItem.setDescricao(DESCRICAO);
         val qrCode = new QrCode();
         qrCode.setCode(QR_CODE);
         novoItem.setQrCode(qrCode);
