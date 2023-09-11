@@ -21,7 +21,7 @@ Vamos desenvolver um sistema de empréstimo de itens no qual pessoas poderão pe
 Para facilitar a identificação dos itens, cada um deles pode ter um QR Code.
 Itens semelhantes podem estar associados a uma categoria.
 
-```
+```text
           ┌─|PESSOA|───┐
           │            │
           │nome        │
