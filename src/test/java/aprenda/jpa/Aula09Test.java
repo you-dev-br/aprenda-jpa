@@ -12,7 +12,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * - Aprenda JPA 09 - Busca avancada: @Query
+ * Aprenda JPA 09 - Busca avancada: @Query
  */
 @SpringBootTest
 class Aula09Test {

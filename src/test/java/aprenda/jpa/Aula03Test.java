@@ -16,16 +16,16 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
  */
 @SpringBootTest
 public class Aula03Test {
-    private static final String NOME = "Nokia 3210";
+    private static final String ITEM_NOME = "Nokia 3210";
     private static final String QR_CODE = "https://github.com/rafacandev/aprenda-jpa";
 
     @Autowired
     private ItemRepository itemRepository;
 
     @Test
-    void salvarItemComQrCode_Entao_VerificarItemNoRepositorio() {
+    void salvarItemComQrCode_Entao_VerificarQueItemFoiSalvo() {
         val novoItem = new Item();
-        novoItem.setNome(NOME);
+        novoItem.setNome(ITEM_NOME);
         val qrCode = new QrCode();
         qrCode.setCode(QR_CODE);
         novoItem.setQrCode(qrCode);

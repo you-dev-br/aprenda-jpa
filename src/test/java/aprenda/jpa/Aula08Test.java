@@ -1,7 +1,6 @@
 package aprenda.jpa;
 
 import aprenda.jpa.item.Item;
-import aprenda.jpa.item.ItemRepository;
 import aprenda.jpa.pessoa.Pessoa;
 import aprenda.jpa.pessoa.PessoaRepository;
 import jakarta.transaction.Transactional;

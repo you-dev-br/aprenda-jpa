@@ -14,8 +14,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class Aula07Test {
-    private static final String NOME = "Bela";
-    private static final String EMAIL = "bela@test.com";
+    private static final String PESSOA_NOME = "Bela";
+    private static final String PESSOA_EMAIL = "bela@test.com";
     private static final String ITEM_NOME = "Game Boy";
 
     @Autowired
@@ -27,8 +27,8 @@ class Aula07Test {
     @Transactional
     void salvarUmaNovaPessoaComItemEmTrasacao_Entao_PegarItemDaPessoa() {
         val novaPessoa = new Pessoa();
-        novaPessoa.setNome(NOME);
-        novaPessoa.setEmail(EMAIL);
+        novaPessoa.setNome(PESSOA_NOME);
+        novaPessoa.setEmail(PESSOA_EMAIL);
 
         val item = new Item();
         item.setNome(ITEM_NOME);

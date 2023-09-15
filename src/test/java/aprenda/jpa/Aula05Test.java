@@ -13,12 +13,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
- * - Aprenda JPA 05 - Relacionamento MuitosParaMuitos (@ManyToMany)
+ * Aprenda JPA 05 - Relacionamento MuitosParaMuitos (@ManyToMany)
  */
 @SpringBootTest
 class Aula05Test {
-    private static final String NOME = "Sony Walkman";
-    private static final String CATEGORIA_NOME = "Toca fitas";
+    private static final String ITEM_NOME = "Sony Walkman";
+    private static final String CATEGORIA_NOME = "Audio";
 
     @Autowired
     private ItemRepository itemRepository;
@@ -26,9 +26,9 @@ class Aula05Test {
     private CategoriaRepository categoriaRepository;
 
     @Test
-    void salvarItemComCategorias_Entao_VerificarNoRepositorio() {
+    void salvarItemComCategorias_Entao_VerificarQueItemFoiSalvo() {
         val novoItem = new Item();
-        novoItem.setNome(NOME);
+        novoItem.setNome(ITEM_NOME);
 
         val novaCategoria = new Categoria(CATEGORIA_NOME);
         novoItem.getCategorias().add(novaCategoria);

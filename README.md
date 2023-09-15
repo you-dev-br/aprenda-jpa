@@ -75,3 +75,4 @@ Referencias
 * [Jakarta Persistence Specification](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1.html)
 * [Spring Boot Reference](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/)
 * [Spring Boot Data JPA Reference](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/)
+* [Wikibooks Java Persistence](https://en.wikibooks.org/wiki/Java_Persistence)
