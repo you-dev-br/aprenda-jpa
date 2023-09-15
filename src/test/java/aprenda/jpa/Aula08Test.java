@@ -26,31 +26,31 @@ class Aula08Test {
 
     @Test
     void salvarUmaNovaPessoa_Entao_BuscarPorEmail() {
-        val novaPessoa = new Pessoa();
-        novaPessoa.setNome(PESSOA_1_NOME);
-        novaPessoa.setEmail(PESSOA_1_EMAIL);
+        val pessoa = new Pessoa();
+        pessoa.setNome(PESSOA_1_NOME);
+        pessoa.setEmail(PESSOA_1_EMAIL);
 
-        pessoaRepository.save(novaPessoa);
+        pessoaRepository.save(pessoa);
 
-        val pessoaNoRepositorio = pessoaRepository.findByEmail(PESSOA_1_EMAIL).orElse(null);
-        assertNotNull(pessoaNoRepositorio);
-        assertEquals(novaPessoa.getId(), pessoaNoRepositorio.getId());
-        assertEquals(PESSOA_1_NOME, pessoaNoRepositorio.getNome());
-        assertEquals(PESSOA_1_EMAIL, pessoaNoRepositorio.getEmail());
+        val pessoaDoRepositorio = pessoaRepository.findByEmail(PESSOA_1_EMAIL).orElse(null);
+        assertNotNull(pessoaDoRepositorio);
+        assertEquals(pessoa.getId(), pessoaDoRepositorio.getId());
+        assertEquals(PESSOA_1_NOME, pessoaDoRepositorio.getNome());
+        assertEquals(PESSOA_1_EMAIL, pessoaDoRepositorio.getEmail());
     }
 
     @Test
     @Transactional
     void salvarUmaNovaPessoa_Entao_BuscarPorNomeDoItem() {
-        val novaPessoa = new Pessoa();
-        novaPessoa.setNome(PESSOA_2_NOME);
-        val novoItem = new Item();
-        novoItem.setNome(ITEM_NOME);
-        novaPessoa.getItems().add(novoItem);
-        pessoaRepository.save(novaPessoa);
+        val pessoa = new Pessoa();
+        pessoa.setNome(PESSOA_2_NOME);
+        val item = new Item();
+        item.setNome(ITEM_NOME);
+        pessoa.getItems().add(item);
+        pessoaRepository.save(pessoa);
 
-        val pessoasNoRepositorio = pessoaRepository.findByItems_Nome(ITEM_NOME);
-        assertEquals(1, pessoasNoRepositorio.size());
-        assertTrue(pessoasNoRepositorio.stream().anyMatch(p -> p.getId().equals(novaPessoa.getId())));
+        val pessoasDoRepositorio = pessoaRepository.findByItems_Nome(ITEM_NOME);
+        assertEquals(1, pessoasDoRepositorio.size());
+        assertTrue(pessoasDoRepositorio.stream().anyMatch(p -> p.getId().equals(pessoa.getId())));
     }
 }

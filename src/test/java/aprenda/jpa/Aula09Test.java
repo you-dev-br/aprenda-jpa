@@ -24,17 +24,17 @@ class Aula09Test {
 
     @Test
     void salvarUmaNovoItem_Entao_BuscarDescricaoContendo() {
-        val novoItem = new Item();
-        novoItem.setNome(ITEM_NOME);
-        novoItem.setDescricao(ITEM_DESCRICAO);
+        val item = new Item();
+        item.setNome(ITEM_NOME);
+        item.setDescricao(ITEM_DESCRICAO);
 
-        itemRepository.save(novoItem);
+        itemRepository.save(item);
 
         List<Item> buscaPorNoventa = itemRepository.buscarDescricaoContendo("noventa");
         assertTrue(buscaPorNoventa.isEmpty());
 
         List<Item> buscaPorOitenta = itemRepository.buscarDescricaoContendo("oitenta");
         assertEquals(1, buscaPorOitenta.size());
-        assertEquals(novoItem.getId(), buscaPorOitenta.get(0).getId());
+        assertEquals(item.getId(), buscaPorOitenta.get(0).getId());
     }
 }

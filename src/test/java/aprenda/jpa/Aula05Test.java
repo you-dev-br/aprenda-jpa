@@ -27,19 +27,19 @@ class Aula05Test {
 
     @Test
     void salvarItemComCategorias_Entao_VerificarQueItemFoiSalvo() {
-        val novoItem = new Item();
-        novoItem.setNome(ITEM_NOME);
+        val item = new Item();
+        item.setNome(ITEM_NOME);
 
-        val novaCategoria = new Categoria(CATEGORIA_NOME);
-        novoItem.getCategorias().add(novaCategoria);
+        val categoria = new Categoria(CATEGORIA_NOME);
+        item.getCategorias().add(categoria);
 
-        itemRepository.save(novoItem);
+        itemRepository.save(item);
 
-        val itemNoRepositorio = itemRepository.findById(novoItem.getId()).orElse(null);
-        assertNotNull(itemNoRepositorio);
+        val itemDoRepositorio = itemRepository.findById(item.getId()).orElse(null);
+        assertNotNull(itemDoRepositorio);
 
-        val categoriaNoRepositorio = itemNoRepositorio.getCategorias().stream().findFirst().orElse(null);
-        assertNotNull(categoriaNoRepositorio);
-        assertEquals(CATEGORIA_NOME, categoriaNoRepositorio.getNome());
+        val categoriaDoRepositorio = itemDoRepositorio.getCategorias().stream().findFirst().orElse(null);
+        assertNotNull(categoriaDoRepositorio);
+        assertEquals(CATEGORIA_NOME, categoriaDoRepositorio.getNome());
     }
 }

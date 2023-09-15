@@ -23,35 +23,35 @@ public class Aula02Test {
     private ItemRepository itemRepository;
 
     @Test
-    void salvarUmNovoItem_Entao_VerificarQueItemFoiSalvo() {
-        val novoItem = new Item();
-        novoItem.setNome(ITEM_NOME);
-        novoItem.setDescricao(ITEM_DESCRICAO);
-        itemRepository.save(novoItem);
+    void salvarItem_E_BuscarPorId() {
+        val item = new Item();
+        item.setNome(ITEM_NOME);
+        item.setDescricao(ITEM_DESCRICAO);
+        itemRepository.save(item);
 
-        val itemNoRepositorio = itemRepository.findById(novoItem.getId()).orElse(null);
-        assertNotNull(itemNoRepositorio);
-        assertEquals(novoItem.getId(), itemNoRepositorio.getId());
-        assertEquals(ITEM_NOME, itemNoRepositorio.getNome());
-        assertEquals(ITEM_DESCRICAO, itemNoRepositorio.getDescricao());
+        val itemDoRepositorio = itemRepository.findById(item.getId()).orElse(null);
+        assertNotNull(itemDoRepositorio);
+        assertEquals(item.getId(), itemDoRepositorio.getId());
+        assertEquals(ITEM_NOME, itemDoRepositorio.getNome());
+        assertEquals(ITEM_DESCRICAO, itemDoRepositorio.getDescricao());
     }
 
     @Test
-    void salvarUmItemExistente_Entao_VerificarQueItemFoiSalvo() {
-        val novoItem = new Item();
-        novoItem.setNome(ITEM_NOME);
-        novoItem.setDescricao(ITEM_DESCRICAO);
-        itemRepository.save(novoItem);
+    void atualizarItem() {
+        val item = new Item();
+        item.setNome(ITEM_NOME);
+        item.setDescricao(ITEM_DESCRICAO);
+        itemRepository.save(item);
 
-        itemRepository.findById(novoItem.getId())
+        itemRepository.findById(item.getId())
                 .ifPresent(itemParaAtualizar -> {
                     itemParaAtualizar.setNome(ITEM_NOME_ATUALIZADO);
                     itemRepository.save(itemParaAtualizar);
                 });
 
-        val itemNoRepositorio = itemRepository.findById(novoItem.getId()).orElse(null);
-        assertNotNull(itemNoRepositorio);
-        assertEquals(ITEM_NOME_ATUALIZADO, itemNoRepositorio.getNome());
-        assertEquals(ITEM_DESCRICAO, itemNoRepositorio.getDescricao());
+        val itemDoRepositorio = itemRepository.findById(item.getId()).orElse(null);
+        assertNotNull(itemDoRepositorio);
+        assertEquals(ITEM_NOME_ATUALIZADO, itemDoRepositorio.getNome());
+        assertEquals(ITEM_DESCRICAO, itemDoRepositorio.getDescricao());
     }
 }

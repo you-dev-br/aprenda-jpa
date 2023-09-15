@@ -23,17 +23,17 @@ public class Aula03Test {
     private ItemRepository itemRepository;
 
     @Test
-    void salvarItemComQrCode_Entao_VerificarQueItemFoiSalvo() {
-        val novoItem = new Item();
-        novoItem.setNome(ITEM_NOME);
+    void salvarItemComQrCode() {
+        val item = new Item();
+        item.setNome(ITEM_NOME);
         val qrCode = new QrCode();
         qrCode.setCode(QR_CODE);
-        novoItem.setQrCode(qrCode);
-        itemRepository.save(novoItem);
+        item.setQrCode(qrCode);
+        itemRepository.save(item);
 
-        val itemNoRepositorio = itemRepository.findById(novoItem.getId()).orElse(null);
-        assertNotNull(itemNoRepositorio);
-        assertNotNull(itemNoRepositorio.getQrCode());
-        assertEquals(QR_CODE, itemNoRepositorio.getQrCode().getCode());
+        val itemDoRepositorio = itemRepository.findById(item.getId()).orElse(null);
+        assertNotNull(itemDoRepositorio);
+        assertNotNull(itemDoRepositorio.getQrCode());
+        assertEquals(QR_CODE, itemDoRepositorio.getQrCode().getCode());
     }
 }

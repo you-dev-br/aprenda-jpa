@@ -26,18 +26,18 @@ class Aula07Test {
     @Test
     @Transactional
     void salvarUmaNovaPessoaComItemEmTrasacao_Entao_PegarItemDaPessoa() {
-        val novaPessoa = new Pessoa();
-        novaPessoa.setNome(PESSOA_NOME);
-        novaPessoa.setEmail(PESSOA_EMAIL);
+        val pessoa = new Pessoa();
+        pessoa.setNome(PESSOA_NOME);
+        pessoa.setEmail(PESSOA_EMAIL);
 
         val item = new Item();
         item.setNome(ITEM_NOME);
-        novaPessoa.getItems().add(item);
+        pessoa.getItems().add(item);
 
-        pessoaRepository.save(novaPessoa);
+        pessoaRepository.save(pessoa);
 
-        val pessoaDoRepositorio = pessoaRepository.findById(novaPessoa.getId()).orElse(null);
-        val itemDaPessoa = pessoaDoRepositorio.getItems().stream().findFirst().orElse(null);
-        assertEquals(ITEM_NOME, itemDaPessoa.getNome());
+        val pessoadoRepositorio = pessoaRepository.findById(pessoa.getId()).orElse(null);
+        val itemDaPessoaDoRepositorio = pessoadoRepositorio.getItems().stream().findFirst().orElse(null);
+        assertEquals(ITEM_NOME, itemDaPessoaDoRepositorio.getNome());
     }
 }

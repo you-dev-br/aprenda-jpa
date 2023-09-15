@@ -27,25 +27,25 @@ class Aula04Test {
     private ItemRepository itemRepository;
 
     @Test
-    void salvarUmaNovaPessoaComItem_Entao_VerificarQuePessoaFoiSalva() {
-        val novaPessoa = new Pessoa();
-        novaPessoa.setNome(PESSOA_NOME);
-        novaPessoa.setEmail(PESSOA_EMAIL);
+    void salvarPessoaComItem() {
+        val pessoa = new Pessoa();
+        pessoa.setNome(PESSOA_NOME);
+        pessoa.setEmail(PESSOA_EMAIL);
 
         val item = new Item();
         item.setNome(ITEM_NOME);
         item.setDescricao(ITEM_DESCRICAO);
-        novaPessoa.getItems().add(item);
+        pessoa.getItems().add(item);
 
-        pessoaRepository.save(novaPessoa);
+        pessoaRepository.save(pessoa);
 
-        val pessoaNoRepositorio = pessoaRepository.findById(novaPessoa.getId()).orElse(null);
-        assertNotNull(pessoaNoRepositorio);
-        assertEquals(novaPessoa.getId(), pessoaNoRepositorio.getId());
-        assertEquals(PESSOA_NOME, pessoaNoRepositorio.getNome());
-        assertEquals(PESSOA_EMAIL, pessoaNoRepositorio.getEmail());
+        val pessoaDoRepositorio = pessoaRepository.findById(pessoa.getId()).orElse(null);
+        assertNotNull(pessoaDoRepositorio);
+        assertEquals(pessoa.getId(), pessoaDoRepositorio.getId());
+        assertEquals(PESSOA_NOME, pessoaDoRepositorio.getNome());
+        assertEquals(PESSOA_EMAIL, pessoaDoRepositorio.getEmail());
 
-        val itemNoRepositorio = itemRepository.findById(item.getId());
-        assertTrue(itemNoRepositorio.isPresent());
+        val itemDoRepositorio = itemRepository.findById(item.getId());
+        assertTrue(itemDoRepositorio.isPresent());
     }
 }
