@@ -57,7 +57,8 @@ Videos
 - Aprenda JPA 09 - Busca avancada: Pelo Nome do Metodo
 - Aprenda JPA 10 - Busca avancada: @Query
 - Aprenda JPA 11 - Busca avancada: Criteria API
-- Aprenda JPA 12 - Associação por tabelas e colunas
+- Aprenda JPA 12 - Relacionamentos com attributos
+- Aprenda JPA 13 - @JoinTable e @JoinColumn
 
 Desenvolvimento
 ---------------
