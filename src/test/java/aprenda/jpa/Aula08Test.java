@@ -1,6 +1,7 @@
 package aprenda.jpa;
 
 import aprenda.jpa.item.Item;
+import aprenda.jpa.item.ItemRepository;
 import aprenda.jpa.pessoa.Pessoa;
 import aprenda.jpa.pessoa.PessoaRepository;
 import jakarta.transaction.Transactional;
@@ -12,45 +13,34 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * Aprenda JPA 08 - Busca avancada: Pelo Nome do Metodo
+ * Aprenda JPA 08 - @Transactional
  */
 @SpringBootTest
 class Aula08Test {
-    private static final String PESSOA_1_NOME = "Bela";
-    private static final String PESSOA_1_EMAIL = "bela@test.com";
-    private static final String PESSOA_2_NOME = "Beatriz";
-    private static final String ITEM_NOME = "Zip Drive";
+    private static final String PESSOA_NOME = "Bela";
+    private static final String PESSOA_EMAIL = "bela@test.com";
+    private static final String ITEM_NOME = "Game Boy";
 
     @Autowired
     private PessoaRepository pessoaRepository;
-
-    @Test
-    void salvarUmaNovaPessoa_Entao_BuscarPorEmail() {
-        val pessoa = new Pessoa();
-        pessoa.setNome(PESSOA_1_NOME);
-        pessoa.setEmail(PESSOA_1_EMAIL);
-
-        pessoaRepository.save(pessoa);
-
-        val pessoaDoRepositorio = pessoaRepository.findByEmail(PESSOA_1_EMAIL).orElse(null);
-        assertNotNull(pessoaDoRepositorio);
-        assertEquals(pessoa.getId(), pessoaDoRepositorio.getId());
-        assertEquals(PESSOA_1_NOME, pessoaDoRepositorio.getNome());
-        assertEquals(PESSOA_1_EMAIL, pessoaDoRepositorio.getEmail());
-    }
+    @Autowired
+    private ItemRepository itemRepository;
 
     @Test
     @Transactional
-    void salvarUmaNovaPessoa_Entao_BuscarPorNomeDoItem() {
+    void salvarUmaNovaPessoaComItemEmTrasacao() {
         val pessoa = new Pessoa();
-        pessoa.setNome(PESSOA_2_NOME);
+        pessoa.setNome(PESSOA_NOME);
+        pessoa.setEmail(PESSOA_EMAIL);
+
         val item = new Item();
         item.setNome(ITEM_NOME);
         pessoa.getItems().add(item);
+
         pessoaRepository.save(pessoa);
 
-        val pessoasDoRepositorio = pessoaRepository.findByItems_Nome(ITEM_NOME);
-        assertEquals(1, pessoasDoRepositorio.size());
-        assertTrue(pessoasDoRepositorio.stream().anyMatch(p -> p.getId().equals(pessoa.getId())));
+        val pessoadoRepositorio = pessoaRepository.findById(pessoa.getId()).orElse(null);
+        val itemDaPessoaDoRepositorio = pessoadoRepositorio.getItems().stream().findFirst().orElse(null);
+        assertEquals(ITEM_NOME, itemDaPessoaDoRepositorio.getNome());
     }
 }

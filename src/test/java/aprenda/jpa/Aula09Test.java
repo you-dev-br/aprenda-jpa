@@ -1,40 +1,59 @@
 package aprenda.jpa;
 
-import lombok.val;
 import aprenda.jpa.item.Item;
 import aprenda.jpa.item.ItemRepository;
+import aprenda.jpa.pessoa.Pessoa;
+import aprenda.jpa.pessoa.PessoaRepository;
+import lombok.val;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * Aprenda JPA 09 - Busca avancada: @Query
+ * Aprenda JPA 09 - Busca avancada: Pelo Nome do Metodo
  */
 @SpringBootTest
 class Aula09Test {
-    private static final String ITEM_NOME = "Kichute";
-    private static final String ITEM_DESCRICAO = "Tenis muito popular entre os meninos da decade de oitenta";
+    private static final String PESSOA_1_NOME = "Bela";
+    private static final String PESSOA_1_EMAIL = "bela@test.com";
+    private static final String PESSOA_2_NOME = "Beatriz";
+    private static final String ITEM_NOME = "Zip Drive";
 
+    @Autowired
+    private PessoaRepository pessoaRepository;
     @Autowired
     private ItemRepository itemRepository;
 
     @Test
-    void salvarUmaNovoItem_Entao_BuscarDescricaoContendo() {
+    void buscarPorEmail() {
+        val pessoa = new Pessoa();
+        pessoa.setNome(PESSOA_1_NOME);
+        pessoa.setEmail(PESSOA_1_EMAIL);
+
+        pessoaRepository.save(pessoa);
+
+        val pessoaDoRepositorio = pessoaRepository.findByEmail(PESSOA_1_EMAIL).orElse(null);
+        assertNotNull(pessoaDoRepositorio);
+        assertEquals(pessoa.getId(), pessoaDoRepositorio.getId());
+        assertEquals(PESSOA_1_NOME, pessoaDoRepositorio.getNome());
+        assertEquals(PESSOA_1_EMAIL, pessoaDoRepositorio.getEmail());
+    }
+
+    @Test
+    void buscarPorNomeDoItem() {
+        val pessoa = new Pessoa();
+        pessoa.setNome(PESSOA_2_NOME);
         val item = new Item();
         item.setNome(ITEM_NOME);
-        item.setDescricao(ITEM_DESCRICAO);
-
         itemRepository.save(item);
 
-        List<Item> buscaPorNoventa = itemRepository.buscarDescricaoContendo("noventa");
-        assertTrue(buscaPorNoventa.isEmpty());
+        pessoa.getItems().add(item);
+        pessoaRepository.save(pessoa);
 
-        List<Item> buscaPorOitenta = itemRepository.buscarDescricaoContendo("oitenta");
-        assertEquals(1, buscaPorOitenta.size());
-        assertEquals(item.getId(), buscaPorOitenta.get(0).getId());
+        val pessoasDoRepositorio = pessoaRepository.findByItems_Nome(ITEM_NOME);
+        assertEquals(1, pessoasDoRepositorio.size());
+        assertTrue(pessoasDoRepositorio.stream().anyMatch(p -> p.getId().equals(pessoa.getId())));
     }
 }

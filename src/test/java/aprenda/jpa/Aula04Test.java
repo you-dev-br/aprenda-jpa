@@ -35,8 +35,9 @@ class Aula04Test {
         val item = new Item();
         item.setNome(ITEM_NOME);
         item.setDescricao(ITEM_DESCRICAO);
-        pessoa.getItems().add(item);
+        itemRepository.save(item);
 
+        pessoa.getItems().add(item);
         pessoaRepository.save(pessoa);
 
         val pessoaDoRepositorio = pessoaRepository.findById(pessoa.getId()).orElse(null);

@@ -23,7 +23,7 @@ public class Aula02Test {
     private ItemRepository itemRepository;
 
     @Test
-    void salvarItem_E_BuscarPorId() {
+    void salvarItem() {
         val item = new Item();
         item.setNome(ITEM_NOME);
         item.setDescricao(ITEM_DESCRICAO);

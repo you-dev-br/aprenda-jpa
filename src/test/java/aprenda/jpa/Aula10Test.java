@@ -1,114 +1,40 @@
 package aprenda.jpa;
 
+import lombok.val;
 import aprenda.jpa.item.Item;
 import aprenda.jpa.item.ItemRepository;
-import aprenda.jpa.pessoa.Pessoa;
-import aprenda.jpa.pessoa.PessoaRepository;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.criteria.Predicate;
-import lombok.val;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.ArrayList;
+import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * Aprenda JPA 10 - Busca avancada: Criteria API
+ * Aprenda JPA 10 - Busca avancada: @Query
  */
 @SpringBootTest
 class Aula10Test {
-    private static final String PESSOA_1_NOME = "Daniela";
-    private static final String PESSOA_2_NOME = "Danilo";
-    private static final String PESSOA_3_NOME = "Dilma";
-    private static final String PESSOA_4_NOME = "Dolores";
-    private static final String ITEM_NOME = "Danoninho";
-
-    @Autowired
-    private PessoaRepository pessoaRepository;
+    private static final String ITEM_NOME = "Kichute";
+    private static final String ITEM_DESCRICAO = "Tenis muito popular entre os meninos da decade de oitenta";
 
     @Autowired
     private ItemRepository itemRepository;
 
-    @Autowired
-    private EntityManager entityManager;
-
     @Test
-    void buscarPessoaPeloNome() {
-        salvarPessoa(PESSOA_1_NOME);
-
-        val criteriaBuilder = entityManager.getCriteriaBuilder();
-        val query = criteriaBuilder.createQuery(Pessoa.class);
-        val pessoa = query.from(Pessoa.class);
-        val nomeEquals = criteriaBuilder.equal(pessoa.get("nome"), PESSOA_1_NOME);
-
-        val pessoaDoRepositorio = entityManager.createQuery(query.where(nomeEquals)).getSingleResult();
-        assertNotNull(pessoaDoRepositorio);
-        assertEquals(PESSOA_1_NOME, pessoaDoRepositorio.getNome());
-    }
-
-    @Test
-    void buscarPessoasPeloNome() {
-        salvarPessoa(PESSOA_2_NOME);
-        salvarPessoa(PESSOA_3_NOME);
-
-        val criteriaBuilder = entityManager.getCriteriaBuilder();
-        val query = criteriaBuilder.createQuery(Pessoa.class);
-        val from = query.from(Pessoa.class);
-        val nomesIn = criteriaBuilder.in(from.get("nome")).value(PESSOA_2_NOME).value(PESSOA_3_NOME);
-        val ordenadoPeloNome = criteriaBuilder.desc(from.get("nome"));
-
-        val pessoasDoRepositorio = entityManager
-                .createQuery(query.where(nomesIn).orderBy(ordenadoPeloNome))
-                .getResultList();
-
-        assertNotNull(pessoasDoRepositorio);
-        assertEquals(2, pessoasDoRepositorio.size());
-        assertEquals(PESSOA_2_NOME, pessoasDoRepositorio.get(1).getNome());
-        assertEquals(PESSOA_3_NOME, pessoasDoRepositorio.get(0).getNome());
-    }
-
-
-    @Test
-    void buscarPorArgumentos() {
-        val pessoa = new Pessoa();
-        pessoa.setNome(PESSOA_4_NOME);
+    void buscarItemPelaDescricaoContendo() {
         val item = new Item();
         item.setNome(ITEM_NOME);
-        pessoa.getItems().add(item);
-        pessoaRepository.save(pessoa);
+        item.setDescricao(ITEM_DESCRICAO);
 
-        val buscaPeloNomePessoa = PESSOA_4_NOME;
-        val buscaPeloNomeItem = ITEM_NOME;
+        itemRepository.save(item);
 
-        val criteriaBuilder = entityManager.getCriteriaBuilder();
-        val query = criteriaBuilder.createQuery(Pessoa.class);
-        val from = query.from(Pessoa.class);
+        List<Item> buscaPorNoventa = itemRepository.buscarDescricaoContendo("noventa");
+        assertTrue(buscaPorNoventa.isEmpty());
 
-        val criterioDeBusca = new ArrayList<Predicate>();
-        if (buscaPeloNomePessoa != null) {
-            criterioDeBusca.add(criteriaBuilder.equal(from.get("nome"), PESSOA_4_NOME));
-        }
-        if (buscaPeloNomeItem != null) {
-            val items = from.join("items");
-            criterioDeBusca.add(criteriaBuilder.equal(items.get("nome"), buscaPeloNomeItem));
-        }
-
-        val pessoasDoRepositorio = entityManager
-                .createQuery(query.where(criterioDeBusca.toArray(new Predicate[0])))
-                .getResultList();
-
-        assertNotNull(pessoasDoRepositorio);
-        assertEquals(1, pessoasDoRepositorio.size());
-        assertEquals(PESSOA_4_NOME, pessoasDoRepositorio.get(0).getNome());
-    }
-
-    private void salvarPessoa(String nome) {
-        val novaPessoa = new Pessoa();
-        novaPessoa.setNome(nome);
-        pessoaRepository.save(novaPessoa);
+        List<Item> buscaPorOitenta = itemRepository.buscarDescricaoContendo("oitenta");
+        assertEquals(1, buscaPorOitenta.size());
+        assertEquals(item.getId(), buscaPorOitenta.get(0).getId());
     }
 }

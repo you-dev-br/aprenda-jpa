@@ -17,6 +17,6 @@ public class Pessoa {
     private Integer id;
     private String nome;
     private String email;
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany
     private Set<Item> items = new HashSet<>();
 }
