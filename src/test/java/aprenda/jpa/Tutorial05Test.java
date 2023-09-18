@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
  * Aprenda JPA 05 - Relacionamento MuitosParaMuitos (@ManyToMany)
  */
 @SpringBootTest
-class Aula05Test {
+class Tutorial05Test {
     private static final String ITEM_NOME = "Sony Walkman";
     private static final String CATEGORIA_NOME = "Audio";
 

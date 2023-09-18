@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * Aprenda JPA 09 - Busca avancada: Pelo Nome do Metodo
  */
 @SpringBootTest
-class Aula09Test {
+class Tutorial09Test {
     private static final String PESSOA_1_NOME = "Bela";
     private static final String PESSOA_1_EMAIL = "bela@test.com";
     private static final String PESSOA_2_NOME = "Beatriz";

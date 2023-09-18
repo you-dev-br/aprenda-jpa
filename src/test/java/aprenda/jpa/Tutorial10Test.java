@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * Aprenda JPA 10 - Busca avancada: @Query
  */
 @SpringBootTest
-class Aula10Test {
+class Tutorial10Test {
     private static final String ITEM_NOME = "Kichute";
     private static final String ITEM_DESCRICAO = "Tenis muito popular entre os meninos da decade de oitenta";
 

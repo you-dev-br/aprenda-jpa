@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * Aprenda JPA 08 - @Transactional
  */
 @SpringBootTest
-class Aula08Test {
+class Tutorial08Test {
     private static final String PESSOA_NOME = "Bela";
     private static final String PESSOA_EMAIL = "bela@test.com";
     private static final String ITEM_NOME = "Game Boy";

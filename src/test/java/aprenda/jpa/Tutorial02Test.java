@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
  * Aprenda JPA 02 - Salvar e buscar por chave primaria
  */
 @SpringBootTest
-public class Aula02Test {
+public class Tutorial02Test {
     private static final String ITEM_NOME = "Epson LX300";
     private static final String ITEM_DESCRICAO = "Impressora matricial. Papel continuo ou folha individual.";
     private static final String ITEM_NOME_ATUALIZADO = "Epson LX300 - Atualizado";

@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * Aprenda JPA 04 - Relacionamento UmParaMuitos (@OneToMany)
  */
 @SpringBootTest
-class Aula04Test {
+class Tutorial04Test {
     private static final String PESSOA_NOME = "Ana";
     private static final String PESSOA_EMAIL = "ana@test.com";
     private static final String ITEM_NOME = "Epson LX300";

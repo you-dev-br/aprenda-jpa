@@ -20,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
  * Aprenda JPA 11 - Busca avancada: Criteria API
  */
 @SpringBootTest
-class Aula11Test {
+class Tutorial11Test {
     private static final String PESSOA_1_NOME = "Daniela";
     private static final String PESSOA_2_NOME = "Danilo";
     private static final String PESSOA_3_NOME = "Dilma";
