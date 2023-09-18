@@ -46,20 +46,22 @@ Itens semelhantes podem estar associados a uma categoria.
 
 Videos
 ------
-- Tutotial JPA 01 - Criar projeto e configuracoes
-- Tutotial JPA 02 - Salvar e buscar por chave primaria
+- Tutotial JPA 01 - Criar configurar o projeto
+- Tutotial JPA 02 - Salvar e buscar por chave primária
 - Tutotial JPA 03 - Relacionamento UmParaUm (@OneToOne)
 - Tutotial JPA 04 - Relacionamento UmParaMuitos (@OneToMany)
 - Tutotial JPA 05 - Relacionamento MuitosParaMuitos (@ManyToMany)
 - Tutotial JPA 06 - Cascade Type
 - Tutotial JPA 07 - Fetch Type: Lazy vs Eager 
 - Tutotial JPA 08 - @Transactional
-- Tutotial JPA 09 - Busca avancada: Pelo Nome do Metodo
-- Tutotial JPA 10 - Busca avancada: @Query
-- Tutotial JPA 11 - Busca avancada: Criteria API
-- Tutotial JPA 12 - Relacionamentos com attributos
+- Tutotial JPA 09 - Busca pelo nome do método
+- Tutotial JPA 10 - Busca pela @Query
+- Tutotial JPA 11 - Busca pela Criteria API
+- Tutotial JPA 12 - Paginação
 - Tutotial JPA 13 - @JoinTable e @JoinColumn
-- Tutotial JPA 14 - Pagination
+- Tutotial JPA 14 - Colunas em formato Json
+- Tutotial JPA 14 - @Embedded e Embeddable
+- Tutotial JPA 12 - Relacionamentos com attributos
 
 Desenvolvimento
 ---------------
