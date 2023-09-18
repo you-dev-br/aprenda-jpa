@@ -7,5 +7,5 @@ import java.util.Optional;
 
 public interface PessoaRepository extends CrudRepository<Pessoa, Integer> {
     Optional<Pessoa> findByEmail(String nome);
-    List<Pessoa> findByItems_Nome(String nomeDoItem);
+    List<Pessoa> findByItems_Item_Nome(String nomeDoItem);
 }

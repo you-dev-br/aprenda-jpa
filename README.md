@@ -78,18 +78,3 @@ Referencias
 * [Spring Boot Reference](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/)
 * [Spring Boot Data JPA Reference](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/)
 * [Wikibooks Java Persistence](https://en.wikibooks.org/wiki/Java_Persistence)
-
-
-
-sed -i 's/STRING_TO_REPLACE/STRING_TO_REPLACE_IT/g' filename
-
-sed -i 's/Aula/Tutorial/g' src/test/java/aprenda/jpa/Tutorial03Test.java
-sed -i 's/Aula/Tutorial/g' src/test/java/aprenda/jpa/Tutorial09Test.java
-sed -i 's/Aula/Tutorial/g' src/test/java/aprenda/jpa/Tutorial05Test.java
-sed -i 's/Aula/Tutorial/g' src/test/java/aprenda/jpa/Tutorial06Test.java
-sed -i 's/Aula/Tutorial/g' src/test/java/aprenda/jpa/Tutorial11Test.java
-sed -i 's/Aula/Tutorial/g' src/test/java/aprenda/jpa/Tutorial02Test.java
-sed -i 's/Aula/Tutorial/g' src/test/java/aprenda/jpa/Tutorial07Test.java
-sed -i 's/Aula/Tutorial/g' src/test/java/aprenda/jpa/Tutorial04Test.java
-sed -i 's/Aula/Tutorial/g' src/test/java/aprenda/jpa/Tutorial08Test.java
-sed -i 's/Aula/Tutorial/g' src/test/java/aprenda/jpa/Tutorial10Test.java

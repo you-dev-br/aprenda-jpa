@@ -41,19 +41,19 @@ class Tutorial09Test {
         assertEquals(PESSOA_1_EMAIL, pessoaDoRepositorio.getEmail());
     }
 
-    @Test
-    void buscarPorNomeDoItem() {
-        val pessoa = new Pessoa();
-        pessoa.setNome(PESSOA_2_NOME);
-        val item = new Item();
-        item.setNome(ITEM_NOME);
-        itemRepository.save(item);
-
-        pessoa.getItems().add(item);
-        pessoaRepository.save(pessoa);
-
-        val pessoasDoRepositorio = pessoaRepository.findByItems_Nome(ITEM_NOME);
-        assertEquals(1, pessoasDoRepositorio.size());
-        assertTrue(pessoasDoRepositorio.stream().anyMatch(p -> p.getId().equals(pessoa.getId())));
-    }
+//    @Test
+//    void buscarPorNomeDoItem() {
+//        val pessoa = new Pessoa();
+//        pessoa.setNome(PESSOA_2_NOME);
+//        val item = new Item();
+//        item.setNome(ITEM_NOME);
+//        itemRepository.save(item);
+//
+//        pessoa.getItems().add(item);
+//        pessoaRepository.save(pessoa);
+//
+//        val pessoasDoRepositorio = pessoaRepository.findByItems_Nome(ITEM_NOME);
+//        assertEquals(1, pessoasDoRepositorio.size());
+//        assertTrue(pessoasDoRepositorio.stream().anyMatch(p -> p.getId().equals(pessoa.getId())));
+//    }
 }

@@ -17,6 +17,8 @@ public class Pessoa {
     private Integer id;
     private String nome;
     private String email;
-    @OneToMany
-    private Set<Item> items = new HashSet<>();
+//    @OneToMany
+//    private Set<Item> items = new HashSet<>();
+    @OneToMany(mappedBy = "pessoa")
+    private Set<PessoaItems> items = new HashSet<>();
 }

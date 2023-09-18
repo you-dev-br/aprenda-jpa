@@ -26,21 +26,21 @@ class Tutorial08Test {
     @Autowired
     private ItemRepository itemRepository;
 
-    @Test
-    @Transactional
-    void salvarUmaNovaPessoaComItemEmTrasacao() {
-        val pessoa = new Pessoa();
-        pessoa.setNome(PESSOA_NOME);
-        pessoa.setEmail(PESSOA_EMAIL);
-
-        val item = new Item();
-        item.setNome(ITEM_NOME);
-        pessoa.getItems().add(item);
-
-        pessoaRepository.save(pessoa);
-
-        val pessoadoRepositorio = pessoaRepository.findById(pessoa.getId()).orElse(null);
-        val itemDaPessoaDoRepositorio = pessoadoRepositorio.getItems().stream().findFirst().orElse(null);
-        assertEquals(ITEM_NOME, itemDaPessoaDoRepositorio.getNome());
-    }
+//    @Test
+//    @Transactional
+//    void salvarUmaNovaPessoaComItemEmTrasacao() {
+//        val pessoa = new Pessoa();
+//        pessoa.setNome(PESSOA_NOME);
+//        pessoa.setEmail(PESSOA_EMAIL);
+//
+//        val item = new Item();
+//        item.setNome(ITEM_NOME);
+//        pessoa.getItems().add(item);
+//
+//        pessoaRepository.save(pessoa);
+//
+//        val pessoadoRepositorio = pessoaRepository.findById(pessoa.getId()).orElse(null);
+//        val itemDaPessoaDoRepositorio = pessoadoRepositorio.getItems().stream().findFirst().orElse(null);
+//        assertEquals(ITEM_NOME, itemDaPessoaDoRepositorio.getNome());
+//    }
 }

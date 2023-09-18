@@ -3,11 +3,14 @@ package aprenda.jpa;
 import aprenda.jpa.item.Item;
 import aprenda.jpa.item.ItemRepository;
 import aprenda.jpa.pessoa.Pessoa;
+import aprenda.jpa.pessoa.PessoaItems;
 import aprenda.jpa.pessoa.PessoaRepository;
 import lombok.val;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.time.OffsetDateTime;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -37,7 +40,14 @@ class Tutorial04Test {
         item.setDescricao(ITEM_DESCRICAO);
         itemRepository.save(item);
 
-        pessoa.getItems().add(item);
+        val pi = new PessoaItems(pessoa, item, OffsetDateTime.now());
+//        pi.setPessoa(pessoa);
+//        pi.setItem(item);
+//
+//
+//
+//        pessoa.getItems().add(item);
+        pessoa.getItems().add(pi);
         pessoaRepository.save(pessoa);
 
         val pessoaDoRepositorio = pessoaRepository.findById(pessoa.getId()).orElse(null);
