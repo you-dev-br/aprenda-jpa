@@ -29,9 +29,7 @@ class Tutorial08Test {
     @Test
     @Transactional
     void salvarUmaNovaPessoaComItemEmTrasacao() {
-        val pessoa = new Pessoa();
-        pessoa.setNome(PESSOA_NOME);
-        pessoa.setEmail(PESSOA_EMAIL);
+        val pessoa = new Pessoa(PESSOA_NOME, PESSOA_EMAIL);
 
         val item = new Item();
         item.setNome(ITEM_NOME);

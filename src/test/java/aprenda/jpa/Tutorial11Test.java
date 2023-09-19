@@ -38,7 +38,7 @@ class Tutorial11Test {
 
     @Test
     void buscarPessoaPeloNome() {
-        salvarPessoa(PESSOA_1_NOME);
+        pessoaRepository.save(new Pessoa(PESSOA_1_NOME));
 
         val criteriaBuilder = entityManager.getCriteriaBuilder();
         val query = criteriaBuilder.createQuery(Pessoa.class);
@@ -52,8 +52,8 @@ class Tutorial11Test {
 
     @Test
     void buscarPessoasPeloNome() {
-        salvarPessoa(PESSOA_2_NOME);
-        salvarPessoa(PESSOA_3_NOME);
+        pessoaRepository.save(new Pessoa(PESSOA_2_NOME));
+        pessoaRepository.save(new Pessoa(PESSOA_3_NOME));
 
         val criteriaBuilder = entityManager.getCriteriaBuilder();
         val query = criteriaBuilder.createQuery(Pessoa.class);
@@ -105,11 +105,5 @@ class Tutorial11Test {
         assertNotNull(pessoasDoRepositorio);
         assertEquals(1, pessoasDoRepositorio.size());
         assertEquals(PESSOA_4_NOME, pessoasDoRepositorio.get(0).getNome());
-    }
-
-    private void salvarPessoa(String nome) {
-        val novaPessoa = new Pessoa();
-        novaPessoa.setNome(nome);
-        pessoaRepository.save(novaPessoa);
     }
 }

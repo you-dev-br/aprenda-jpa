@@ -28,10 +28,7 @@ class Tutorial09Test {
 
     @Test
     void buscarPorEmail() {
-        val pessoa = new Pessoa();
-        pessoa.setNome(PESSOA_1_NOME);
-        pessoa.setEmail(PESSOA_1_EMAIL);
-
+        val pessoa = new Pessoa(PESSOA_1_NOME, PESSOA_1_EMAIL);
         pessoaRepository.save(pessoa);
 
         val pessoaDoRepositorio = pessoaRepository.findByEmail(PESSOA_1_EMAIL).orElse(null);
@@ -43,8 +40,7 @@ class Tutorial09Test {
 
     @Test
     void buscarPorNomeDoItem() {
-        val pessoa = new Pessoa();
-        pessoa.setNome(PESSOA_2_NOME);
+        val pessoa = new Pessoa(PESSOA_2_NOME);
         val item = new Item();
         item.setNome(ITEM_NOME);
         itemRepository.save(item);

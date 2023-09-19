@@ -27,13 +27,10 @@ class Tutorial12Test {
 
     @Test
     void buscarTodosPorExemplo() {
-        salvarPessoa(PESSOA_1_NOME);
-        salvarPessoa(PESSOA_2_NOME);
+        pessoaRepository.save(new Pessoa(PESSOA_1_NOME));
+        pessoaRepository.save(new Pessoa(PESSOA_2_NOME));
 
-        val exemplo = new Pessoa();
-        exemplo.setNome(PESSOA_2_NOME);
-
-
+        val exemplo = new Pessoa(PESSOA_2_NOME);
         val exemplosNoRepositorio = pessoaRepository.findAll(Example.of(exemplo));
 
         assertEquals(1, exemplosNoRepositorio.size());
@@ -42,25 +39,17 @@ class Tutorial12Test {
 
     @Test
     void buscarUmPorExemplo() {
-        salvarPessoa(PESSOA_3_NOME);
-        salvarPessoa(PESSOA_4_NOME);
+        pessoaRepository.save(new Pessoa(PESSOA_3_NOME));
+        pessoaRepository.save(new Pessoa(PESSOA_4_NOME));
 
         val matcher = matching()
                 .withMatcher("nome", startsWith().ignoreCase());
 
-        val exemplo = new Pessoa();
-        exemplo.setNome("f");
-        exemplo.setEmail("f");
-
+        val exemplo = new Pessoa("f");
         val exemplosNoRepositorio = pessoaRepository.findAll(Example.of(exemplo, matcher));
 
         assertEquals(1, exemplosNoRepositorio.size());
         assertEquals(PESSOA_3_NOME, exemplosNoRepositorio.get(0).getNome());
     }
 
-    private void salvarPessoa(String nome) {
-        val novaPessoa = new Pessoa();
-        novaPessoa.setNome(nome);
-        pessoaRepository.save(novaPessoa);
-    }
 }
