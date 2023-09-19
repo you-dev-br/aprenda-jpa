@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -32,5 +33,11 @@ public class Pessoa {
     public Pessoa(String nome, String email) {
         this.nome = nome;
         this.email = email;
+    }
+
+    public Pessoa(String nome, String email, Item ...items) {
+        this.nome = nome;
+        this.email = email;
+        this.items = new HashSet<>(List.of(items));
     }
 }

@@ -27,12 +27,9 @@ class Tutorial05Test {
 
     @Test
     void salvarItemComCategorias_Entao_VerificarQueItemFoiSalvo() {
-        val item = new Item();
-        item.setNome(ITEM_NOME);
-
+        val item = new Item(ITEM_NOME);
         val categoria = new Categoria(CATEGORIA_NOME);
         item.getCategorias().add(categoria);
-
         itemRepository.save(item);
 
         val itemDoRepositorio = itemRepository.findById(item.getId()).orElse(null);

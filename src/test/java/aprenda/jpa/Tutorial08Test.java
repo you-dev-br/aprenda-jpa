@@ -29,12 +29,7 @@ class Tutorial08Test {
     @Test
     @Transactional
     void salvarUmaNovaPessoaComItemEmTrasacao() {
-        val pessoa = new Pessoa(PESSOA_NOME, PESSOA_EMAIL);
-
-        val item = new Item();
-        item.setNome(ITEM_NOME);
-        pessoa.getItems().add(item);
-
+        val pessoa = new Pessoa(PESSOA_NOME, PESSOA_EMAIL, new Item(ITEM_NOME));
         pessoaRepository.save(pessoa);
 
         val pessoadoRepositorio = pessoaRepository.findById(pessoa.getId()).orElse(null);

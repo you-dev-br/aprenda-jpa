@@ -24,10 +24,7 @@ class Tutorial10Test {
 
     @Test
     void buscarItemPelaDescricaoContendo() {
-        val item = new Item();
-        item.setNome(ITEM_NOME);
-        item.setDescricao(ITEM_DESCRICAO);
-
+        val item = new Item(ITEM_NOME, ITEM_DESCRICAO);
         itemRepository.save(item);
 
         List<Item> buscaPorNoventa = itemRepository.buscarDescricaoContendo("noventa");

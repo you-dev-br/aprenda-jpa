@@ -41,8 +41,7 @@ class Tutorial09Test {
     @Test
     void buscarPorNomeDoItem() {
         val pessoa = new Pessoa(PESSOA_2_NOME);
-        val item = new Item();
-        item.setNome(ITEM_NOME);
+        val item = new Item(ITEM_NOME);
         itemRepository.save(item);
 
         pessoa.getItems().add(item);

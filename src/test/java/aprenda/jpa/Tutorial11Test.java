@@ -74,11 +74,10 @@ class Tutorial11Test {
 
     @Test
     void buscarPorArgumentos() {
-        val pessoa = new Pessoa();
-        pessoa.setNome(PESSOA_4_NOME);
-        val item = new Item();
-        item.setNome(ITEM_NOME);
+        val item = new Item(ITEM_NOME);
         itemRepository.save(item);
+
+        val pessoa = new Pessoa(PESSOA_4_NOME);
         pessoa.getItems().add(item);
         pessoaRepository.save(pessoa);
 
