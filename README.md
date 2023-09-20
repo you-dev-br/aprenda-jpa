@@ -57,12 +57,12 @@ Videos
 - Tutotial JPA 09 - Busca pelo nome do método
 - Tutotial JPA 10 - Busca pela @Query
 - Tutotial JPA 11 - Busca pela Criteria API
-- Tutotial JPA 11 - Busca por exemplo
-- Tutotial JPA 12 - Paginação
-- Tutotial JPA 13 - @JoinTable e @JoinColumn
-- Tutotial JPA 14 - Colunas em formato Json
-- Tutotial JPA 14 - @Embedded e Embeddable
-- Tutotial JPA 12 - Relacionamentos com attributos
+- Tutotial JPA 12 - Busca por exemplo
+- Tutotial JPA 13 - Paginação
+- Tutotial JPA 14 - @JoinTable e @JoinColumn
+- Tutotial JPA 15 - Colunas em formato Json
+- Tutotial JPA 16 - @Embedded e Embeddable
+- Tutotial JPA 17 - Relacionamentos com attributos
 
 Desenvolvimento
 ---------------
