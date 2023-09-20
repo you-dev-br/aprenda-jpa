@@ -1,5 +1,7 @@
 package aprenda.jpa;
 
+import aprenda.jpa.pessoa.Pessoa;
+import aprenda.jpa.pessoa.PessoaRepository;
 import lombok.val;
 import aprenda.jpa.item.Item;
 import aprenda.jpa.item.ItemRepository;
@@ -16,22 +18,16 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 @SpringBootTest
 class Tutorial10Test {
-    private static final String ITEM_NOME = "Kichute";
-    private static final String ITEM_DESCRICAO = "Tenis muito popular entre os meninos da decade de oitenta";
+    private static final String PESSOA_NOME = "Gabriela Oliveira";
 
     @Autowired
-    private ItemRepository itemRepository;
+    private PessoaRepository pessoaRepository;
 
     @Test
-    void buscarItemPelaDescricaoContendo() {
-        val item = new Item(ITEM_NOME, ITEM_DESCRICAO);
-        itemRepository.save(item);
-
-        List<Item> buscaPorNoventa = itemRepository.buscarDescricaoContendo("noventa");
-        assertTrue(buscaPorNoventa.isEmpty());
-
-        List<Item> buscaPorOitenta = itemRepository.buscarDescricaoContendo("oitenta");
-        assertEquals(1, buscaPorOitenta.size());
-        assertEquals(item.getId(), buscaPorOitenta.get(0).getId());
+    void buscarPessoaPeloNomeContendo() {
+        pessoaRepository.save(new Pessoa(PESSOA_NOME));
+        List<Pessoa> pessoasContendoOliveira = pessoaRepository.buscarPorNomeContendo("Oliveira");
+        assertEquals(1, pessoasContendoOliveira.size());
+        assertEquals(PESSOA_NOME, pessoasContendoOliveira.get(0).getNome());
     }
 }

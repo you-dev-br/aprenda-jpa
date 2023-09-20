@@ -19,6 +19,7 @@ class Tutorial09Test {
     private static final String PESSOA_1_NOME = "Bela";
     private static final String PESSOA_1_EMAIL = "bela@test.com";
     private static final String PESSOA_2_NOME = "Beatriz";
+    private static final String PESSOA_2_EMAIL = "beatriz@test.com";
     private static final String ITEM_NOME = "Zip Drive";
 
     @Autowired
@@ -40,11 +41,9 @@ class Tutorial09Test {
 
     @Test
     void buscarPorNomeDoItem() {
-        val pessoa = new Pessoa(PESSOA_2_NOME);
         val item = new Item(ITEM_NOME);
         itemRepository.save(item);
-
-        pessoa.getItems().add(item);
+        val pessoa = new Pessoa(PESSOA_2_NOME, PESSOA_2_EMAIL, item);
         pessoaRepository.save(pessoa);
 
         val pessoasDoRepositorio = pessoaRepository.findByItems_Nome(ITEM_NOME);
