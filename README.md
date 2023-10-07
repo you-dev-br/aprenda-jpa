@@ -46,23 +46,23 @@ Itens semelhantes podem estar associados a uma categoria.
 
 Videos
 ------
-- Tutotial JPA 01 - Criar configurar o projeto
-- Tutotial JPA 02 - Salvar e buscar por chave primária
-- Tutotial JPA 03 - Relacionamento UmParaUm (@OneToOne)
-- Tutotial JPA 04 - Relacionamento UmParaMuitos (@OneToMany)
-- Tutotial JPA 05 - Relacionamento MuitosParaMuitos (@ManyToMany)
-- Tutotial JPA 06 - Cascade Type
-- Tutotial JPA 07 - Fetch Type: Lazy vs Eager 
-- Tutotial JPA 08 - @Transactional
-- Tutotial JPA 09 - Busca pelo nome do método
-- Tutotial JPA 10 - Busca pela @Query
-- Tutotial JPA 11 - Busca pela Criteria API
-- Tutotial JPA 12 - Busca por exemplo
-- Tutotial JPA 13 - Paginação
-- Tutotial JPA 14 - @JoinTable e @JoinColumn
-- Tutotial JPA 15 - Colunas em formato Json
-- Tutotial JPA 16 - @Embedded e Embeddable
-- Tutotial JPA 17 - Relacionamentos com attributos
+- Tutorial JPA 01 - Criar e configurar o projeto
+- Tutorial JPA 02 - Salvar e buscar por chave primária
+- Tutorial JPA 03 - Relacionamento UmParaUm (@OneToOne)
+- Tutorial JPA 04 - Relacionamento UmParaMuitos (@OneToMany)
+- Tutorial JPA 05 - Relacionamento MuitosParaMuitos (@ManyToMany)
+- Tutorial JPA 06 - Cascade Type
+- Tutorial JPA 07 - Fetch Type: Lazy vs Eager 
+- Tutorial JPA 08 - @Transactional
+- Tutorial JPA 09 - Busca pelo nome do método
+- Tutorial JPA 10 - Busca pela @Query
+- Tutorial JPA 11 - Busca pela Criteria API
+- Tutorial JPA 12 - Busca por exemplo
+- Tutorial JPA 13 - Paginação
+- Tutorial JPA 14 - @JoinTable e @JoinColumn
+- Tutorial JPA 15 - Colunas em formato Json
+- Tutorial JPA 16 - @Embedded e Embeddable
+- Tutorial JPA 17 - Relacionamentos com attributos
 
 Desenvolvimento
 ---------------
