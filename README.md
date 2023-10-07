@@ -7,7 +7,7 @@ Requerimentos:
 * Git
 
 Tech stack utilizada neste material:
-* Java 12
+* Java 21
 * JPA, também conhecido como Jakarta Persistence
 * Spring Boot
 * Spring Data JPA
