@@ -1,8 +1,6 @@
 package aprenda.jpa.item;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,4 +13,6 @@ public class Item {
     private Integer id;
     private String nome;
     private String descricao;
+    @OneToOne
+    private QrCode qrCode;
 }
