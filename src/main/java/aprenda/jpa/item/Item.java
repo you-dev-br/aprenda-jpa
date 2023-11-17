@@ -17,7 +17,7 @@ public class Item {
     private Integer id;
     private String nome;
     private String descricao;
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
     private QrCode qrCode;
     @ManyToMany
     private Set<Categoria> categorias = new HashSet<>();
