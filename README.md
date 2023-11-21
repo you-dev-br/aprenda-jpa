@@ -51,13 +51,13 @@ Videos
 - Tutorial JPA 04 - Relacionamento UmParaMuitos (@OneToMany)
 - Tutorial JPA 05 - Relacionamento MuitosParaMuitos (@ManyToMany)
 - Tutorial JPA 06 - Cascade Type
-- Tutorial JPA 07 - Fetch Type: Lazy vs Eager 
-- Tutorial JPA 08 - @Transactional
-- Tutorial JPA 09 - Busca pelo nome do método
-- Tutorial JPA 10 - Busca pela @Query
-- Tutorial JPA 11 - Busca pela Criteria API
-- Tutorial JPA 12 - Busca por exemplo
-- Tutorial JPA 13 - Paginação
+- Tutorial JPA 07 - Busca pelo nome do método
+- Tutorial JPA 08 - Busca pela @Query
+- Tutorial JPA 09 - Busca pela Criteria API
+- Tutorial JPA 10 - Busca por exemplo
+- Tutorial JPA 11 - Paginação
+- Tutorial JPA 12 - Fetch Type: Lazy vs Eager 
+- Tutorial JPA 13 - @Transactional
 - Tutorial JPA 14 - @JoinTable e @JoinColumn
 - Tutorial JPA 15 - Colunas em formato Json
 - Tutorial JPA 16 - @Embedded e Embeddable
@@ -78,5 +78,5 @@ Referencias
 * [String Initialzr](https://start.spring.io/)
 * [Jakarta Persistence Specification](https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1.html)
 * [Spring Boot Reference](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/)
-* [Spring Boot Data JPA Reference](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/)
+* [Spring Boot Data JPA Reference](https://docs.spring.io/spring-data/jpa/reference/)
 * [Wikibooks Java Persistence](https://en.wikibooks.org/wiki/Java_Persistence)
