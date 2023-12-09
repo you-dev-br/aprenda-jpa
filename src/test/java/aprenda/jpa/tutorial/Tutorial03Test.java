@@ -4,6 +4,7 @@ import aprenda.jpa.item.Item;
 import aprenda.jpa.item.ItemRepository;
 import aprenda.jpa.item.QrCode;
 import aprenda.jpa.item.QrCodeRepository;
+import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,7 @@ public class Tutorial03Test {
     private QrCodeRepository qrCodeRepository;
 
     @Test
+    @Transactional
     void salvarItemComQrCode() {
         var item = new Item();
         item.setNome(ITEM_NOME);
