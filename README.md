@@ -56,12 +56,13 @@ Videos
 - Tutorial JPA 09 - Busca pela Criteria API
 - Tutorial JPA 10 - Busca por exemplo
 - Tutorial JPA 11 - Paginação
-- Tutorial JPA 12 - Fetch Type: Lazy vs Eager 
-- Tutorial JPA 13 - @Transactional
-- Tutorial JPA 14 - @JoinTable e @JoinColumn
-- Tutorial JPA 15 - Colunas em formato Json
-- Tutorial JPA 16 - @Embedded e Embeddable
-- Tutorial JPA 17 - Relacionamentos com attributos
+- Tutorial JPA 12 - Ordenação
+- Tutorial JPA 13 - Fetch Type: Lazy vs Eager 
+- Tutorial JPA 14 - @Transactional
+- Tutorial JPA 15 - @JoinTable e @JoinColumn
+- Tutorial JPA 16 - Colunas em formato Json
+- Tutorial JPA 17 - @Embedded e Embeddable
+- Tutorial JPA 18 - Relacionamentos com attributos
 
 Desenvolvimento
 ---------------
