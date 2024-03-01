@@ -19,6 +19,6 @@ public class Item {
     private String descricao;
     @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
     private QrCode qrCode;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private Set<Categoria> categorias = new HashSet<>();
 }
