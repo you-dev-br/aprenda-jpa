@@ -15,6 +15,7 @@ public class Item {
     @Id
     @GeneratedValue
     private Integer id;
+    @Column(nullable = false)
     private String nome;
     private String descricao;
     @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
