@@ -73,7 +73,7 @@ Se queremos representar o relacionamento com uma tabela intermediaria podemos ut
 Portanto, temos que atualizar a nossa classe Pessoa:
 ```java
 @JoinTable(
-        name = "emprestimos",
+        name = "emprestimo",
         joinColumns = @JoinColumn(name= "pessoa_id"),
         inverseJoinColumns = @JoinColumn(name="item_id"))
 private Set<Item> items = new HashSet<>();
@@ -87,7 +87,7 @@ Que vai resultar no seguinte relacionamento:
           │email       │
           └──────────┬─┘
                      │
-          ┌─|PESSOA_ITEMS|──┐
+          ┌─|EMPRESTIMO|────┐
           │items_id         │
           │pessoa_id        │
           └──────────┬──────┘
