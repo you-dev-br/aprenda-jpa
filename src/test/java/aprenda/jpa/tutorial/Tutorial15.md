@@ -69,7 +69,7 @@ Que vai resultar no seguinte relacionamento:
 ```
 
 ### @JoinTable
-Se queremos representar o relacionamento com uma tabela intermediaria podemos utilizar o `@JoinTable`.
+Se queremos representar o relacionamento com uma tabela intermediária podemos utilizar o `@JoinTable`.
 Portanto, temos que atualizar a nossa classe Pessoa:
 ```java
 @JoinTable(
