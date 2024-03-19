@@ -1,10 +1,7 @@
 package aprenda.jpa.pessoa;
 
 import aprenda.jpa.item.Item;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -21,5 +18,10 @@ public class Pessoa {
     private String nome;
     private String email;
     @OneToMany
+    @JoinTable(
+            name = "emprestimo",
+            joinColumns = @JoinColumn(name = "pessoa_id"),
+            inverseJoinColumns = @JoinColumn(name = "item_id")
+    )
     private Set<Item> items = new HashSet<>();
 }
