@@ -1,9 +1,18 @@
 package aprenda.jpa.item;
 
 import aprenda.jpa.categoria.Categoria;
-import jakarta.persistence.*;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Convert;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToOne;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -11,6 +20,7 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
+@ToString
 public class Item {
     @Id
     @GeneratedValue
@@ -22,4 +32,14 @@ public class Item {
     private QrCode qrCode;
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Categoria> categorias = new HashSet<>();
+
+    /*
+     * Podemos utilizar a anotacao @Type our @Convert. Exemplos:
+     * @Type(JsonType.class)
+     * ou
+     * @Convert(converter = DetalhesConverter.class)
+     */
+    @Convert(converter = DetalhesConverter.class)
+    @Column(columnDefinition = "json")
+    private Detalhes detalhes;
 }
