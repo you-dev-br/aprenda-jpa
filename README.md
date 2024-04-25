@@ -61,7 +61,7 @@ Videos
 - Tutorial JPA 14 - @Transactional
 - Tutorial JPA 15 - @JoinTable e @JoinColumn
 - Tutorial JPA 16 - Colunas em formato Json
-- Tutorial JPA 17 - @Embedded e Embeddable
+- Tutorial JPA 17 - @Embedded: Entidade embutida
 - Tutorial JPA 18 - Relacionamentos com attributos
 
 Desenvolvimento
