@@ -1,15 +1,7 @@
 package aprenda.jpa.item;
 
 import aprenda.jpa.categoria.Categoria;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Convert;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -42,4 +34,7 @@ public class Item {
     @Convert(converter = DetalhesConverter.class)
     @Column(columnDefinition = "json")
     private Detalhes detalhes;
+
+    @Embedded
+    private NumeroDeSerie numeroDeSerie;
 }
