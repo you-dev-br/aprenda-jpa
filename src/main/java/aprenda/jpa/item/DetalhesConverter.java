@@ -16,7 +16,7 @@ public class DetalhesConverter implements AttributeConverter<Detalhes, byte[]> {
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
-    }qqq
+    }
 
     @Override
     public Detalhes convertToEntityAttribute(byte[] attribute) {
